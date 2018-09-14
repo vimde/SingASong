@@ -4,47 +4,101 @@ public class Song {
 
     public static void main(String[] args) {
 
-        String song = "There was an old lady who swallowed a fly.\n" +
-                "I don't know why she swallowed a fly - perhaps she'll die!\n" +
-                "\n" +
-                "There was an old lady who swallowed a spider;\n" +
-                "That wriggled and wiggled and tickled inside her.\n" +
-                "She swallowed the spider to catch the fly;\n" +
-                "I don't know why she swallowed a fly - perhaps she'll die!\n" +
-                "\n" +
-                "There was an old lady who swallowed a bird;\n" +
-                "How absurd to swallow a bird.\n" +
-                "She swallowed the bird to catch the spider,\n" +
-                "She swallowed the spider to catch the fly;\n" +
-                "I don't know why she swallowed a fly - perhaps she'll die!\n" +
-                "\n" +
-                "There was an old lady who swallowed a cat;\n" +
-                "Fancy that to swallow a cat!\n" +
-                "She swallowed the cat to catch the bird,\n" +
-                "She swallowed the bird to catch the spider,\n" +
-                "She swallowed the spider to catch the fly;\n" +
-                "I don't know why she swallowed a fly - perhaps she'll die!\n" +
-                "\n" +
-                "There was an old lady who swallowed a dog;\n" +
-                "What a hog, to swallow a dog!\n" +
-                "She swallowed the dog to catch the cat,\n" +
-                "She swallowed the cat to catch the bird,\n" +
-                "She swallowed the bird to catch the spider,\n" +
-                "She swallowed the spider to catch the fly;\n" +
-                "I don't know why she swallowed a fly - perhaps she'll die!\n" +
-                "\n" +
-                "There was an old lady who swallowed a cow;\n" +
-                "I don't know how she swallowed a cow!\n" +
-                "She swallowed the cow to catch the dog,\n" +
-                "She swallowed the dog to catch the cat,\n" +
-                "She swallowed the cat to catch the bird,\n" +
-                "She swallowed the bird to catch the spider,\n" +
-                "She swallowed the spider to catch the fly;\n" +
-                "I don't know why she swallowed a fly - perhaps she'll die!\n" +
-                "\n" +
-                "There was an old lady who swallowed a horse...\n" +
-                "...She's dead, of course!";
+        String song = oldLadySwallowedA("fly")+endsWithAPeriod() +
+                whySheSwallowedA("fly") +endsWithNewLine() +
+                oldLadySwallowedA("spider")+endsWithASemiColon() +
+                wriggledAndTickled()+endsWithAPeriod() +
+                swallowedOneToCatchAnother("spider", "fly")+endsWithASemiColon() +
+                whySheSwallowedA("fly") +endsWithNewLine() +
+                oldLadySwallowedA("bird")+endsWithASemiColon() +
+                absurdToSwallowA("bird")+endsWithAPeriod() +
+                swallowedOneToCatchAnother("bird", "spider")+endsWithAComma() +
+                swallowedOneToCatchAnother("spider", "fly")+endsWithASemiColon() +
+                whySheSwallowedA("fly") +endsWithNewLine() +
+                oldLadySwallowedA("cat")+endsWithASemiColon() +
+                fancyToSwallowA("cat")+endsWithABang() +
+                swallowedOneToCatchAnother("cat", "bird")+endsWithAComma() +
+                swallowedOneToCatchAnother("bird", "spider")+endsWithAComma() +
+                swallowedOneToCatchAnother("spider", "fly")+endsWithASemiColon() +
+                whySheSwallowedA("fly") +endsWithNewLine() +
+                oldLadySwallowedA("dog")+endsWithASemiColon() +
+                whatAToSwallowA("hog", "dog")+endsWithABang() +
+                swallowedOneToCatchAnother("dog", "cat")+endsWithAComma() +
+                swallowedOneToCatchAnother("cat", "bird")+endsWithAComma() +
+                swallowedOneToCatchAnother("bird", "spider")+endsWithAComma() +
+                swallowedOneToCatchAnother("spider", "fly")+endsWithASemiColon() +
+                whySheSwallowedA("fly") +endsWithNewLine() +
+                oldLadySwallowedA("cow")+endsWithASemiColon() +
+                howSheSwallowedA("cow")+endsWithABang() +
+                swallowedOneToCatchAnother("cow", "dog")+endsWithAComma() +
+                swallowedOneToCatchAnother("dog", "cat")+endsWithAComma() +
+                swallowedOneToCatchAnother("cat", "bird")+endsWithAComma() +
+                swallowedOneToCatchAnother("bird", "spider")+endsWithAComma() +
+                swallowedOneToCatchAnother("spider", "fly")+endsWithASemiColon() +
+                whySheSwallowedA("fly") +endsWithNewLine() +
+                oldLadySwallowedA("horse")+endsWithEllipsis() +
+                ladyIsDead();
 
         System.out.println(song);
     }
+
+	private static String whatAToSwallowA(final String animal, final String otherAnimal) {
+		return String.format("What a %s, to swallow a %s", animal, otherAnimal);
+	}
+
+	private static String absurdToSwallowA(final String animal) {
+		return String.format("How absurd to swallow a %s", animal);
+	}
+
+	private static String wriggledAndTickled() {
+		return "That wriggled and wiggled and tickled inside her";
+	}
+
+	private static String fancyToSwallowA(final String animal) {
+		return String.format("Fancy that to swallow a %s", animal);
+	}
+
+	private static String howSheSwallowedA(final String animal) {
+		return String.format("I don't know how she swallowed a %s", animal);
+	}
+
+	private static String endsWithABang() {
+		return "!\n";
+	}
+
+	private static String endsWithNewLine() {
+		return "\n";
+	}
+
+	private static String endsWithEllipsis() {
+		return "...\n";
+	}
+
+	private static String endsWithAComma() {
+		return ",\n";
+	}
+
+	private static String endsWithASemiColon() {
+		return ";\n";
+	}
+
+	private static String endsWithAPeriod() {
+		return ".\n";
+	}
+
+	private static String ladyIsDead() {
+		return "...She's dead, of course!";
+	}
+
+	private static String swallowedOneToCatchAnother(final String animal, final String otherAnimal) {
+		return String.format("She swallowed the %s to catch the %s", animal, otherAnimal);
+	}
+
+	private static String oldLadySwallowedA(final String animal) {
+		return String.format("There was an old lady who swallowed a %s", animal);
+	}
+
+	private static String whySheSwallowedA(final String fly) {
+		return String.format("I don't know why she swallowed a %s - perhaps she'll die!\n", fly);
+	}
 }
